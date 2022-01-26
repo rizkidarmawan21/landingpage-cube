@@ -6,7 +6,7 @@ export default function Card(props) {
     const className = ['tiles-item']
     className.push(props.className)
     return (
-        <Fade>
+        <Fade bottom delay={props.delay} >
         <div className={className.join(" ")}>
             <div className={`tiles-item-inner ${props.hasShadow ? " has-shadow " : ""}`} >
                     {props.children}
@@ -18,6 +18,7 @@ export default function Card(props) {
 
 
 Card.propTypes ={
+    delay:propTypes.number,
     hasShadow: propTypes.bool,
     className: propTypes.string
 }

@@ -168,25 +168,32 @@ export default function Homepage() {
                     </div>
                 </Section>
                 <Clients />
-                <Section className='features-tiles' >
+
+                {true && <Section className='features-tiles' >
                     <div className="container">
                         <div className="features-tiles-inner section-inner">
-                            {
-                                features.map((fitur, index) =>
-                                    <Feature key={index} data={fitur} delayInMS={2500} />
+                            <div class="tiles-wrap">
+                                {
+                                    features.map((fitur, index) =>
+                                        <Feature key={index} data={fitur} delayInMS={index * 500} />
 
-                                )
-                            }
+                                    )
+                                }
 
+                            </div>
                         </div>
                     </div>
-                </Section>
+                </Section>}
+
+
                 <Section className='pricing' >
                     <div className="container">
                         <div
                             className="pricing-inner section-inner has-top-divider"
                         >
                             <div className="section-header center-content">
+                                <Fade bottom delay={1500} >
+
                                 <div className="container-xs">
                                     <h2 className="mt-0 mb-16">
                                         Simple, transarent pricing
@@ -197,11 +204,12 @@ export default function Homepage() {
                                         of a document or visual presentation.
                                     </p>
                                 </div>
+                                </Fade>
                             </div>
                             <div className="tiles-wrap">
                                 {
                                     listPricing.map((list, index) =>
-                                        <Card hasShadow>
+                                        <Card key={index} delay={index * 1000} hasShadow>
                                             <div class="pricing-item-content">
                                                 <div
                                                     class="pricing-item-header pb-24 mb-24"
@@ -248,9 +256,9 @@ export default function Homepage() {
                         </div>
                     </div>
                 </Section>
-                
+
             </main>
-          <Footer></Footer>
+            <Footer></Footer>
         </div>
     )
 }
